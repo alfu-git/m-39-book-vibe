@@ -1,9 +1,10 @@
 import { Star } from "lucide-react";
 import React from "react";
+import { Link } from "react-router";
 
 const BookCard = ({ book }) => {
   return (
-    <div className="p-6 border border-[#131313]/15 rounded-2xl">
+    <Link to={`/book-details/${book.bookId}`} className="p-6 border border-[#131313]/15 rounded-2xl shadow">
       <div className="py-8 bg-[#F3F3F3] rounded-2xl flex justify-center items-center">
         <img
           className="w-30 h-40"
@@ -36,7 +37,7 @@ const BookCard = ({ book }) => {
           </span>
         </div>
       </div>
-    </div>
+    </Link>
   );
 };
 
