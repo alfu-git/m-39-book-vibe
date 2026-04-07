@@ -5,11 +5,14 @@ import App from "./App.jsx";
 import { router } from "./Routes/Routes.jsx";
 import { RouterProvider } from "react-router";
 import BookContextP from "./Context/BookContextP.jsx";
+import TabBtnContextP from "./Context/TabBtnContextP.jsx";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <BookContextP>
-      <RouterProvider router={router} />
+      <TabBtnContextP>
+        <RouterProvider router={router} />
+      </TabBtnContextP>
     </BookContextP>
   </StrictMode>,
 );

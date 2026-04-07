@@ -1,0 +1,14 @@
+.tab-active {
+  border: 1px solid #1313134D;
+  border-bottom: none;
+  color: #131313CC;
+  font-size: 18px;
+  box-shadow: none;
+  background: transparent;
+}
+
+.tab-inactive {
+  border-bottom: 1px solid #1313134D;
+  color: #13131380;
+  font-size: 18px;
+}
