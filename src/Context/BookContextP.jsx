@@ -1,14 +1,21 @@
 import React, { createContext, useState } from "react";
 import { toast } from "react-toastify";
+import { addToLocalStorage, getDataFromLocalStorage } from "../Utility/localDB";
 
 export const BookContext = createContext();
 
 const BookContextP = ({ children }) => {
-  const [readBooksList, setReadBooksList] = useState([]);
-  const [wishlistBooks, setWishlistBooks] = useState([]);
+  const [readBooksList, setReadBooksList] = useState(() =>
+    getDataFromLocalStorage("readList"),
+  );
+  const [wishlistBooks, setWishlistBooks] = useState(() =>
+    getDataFromLocalStorage("wishlist"),
+  );
   const [sortType, setSortType] = useState("");
 
   const handleReadBtn = (book) => {
+    addToLocalStorage("readList", book);
+
     const isExistsInWishlist = wishlistBooks.find(
       (b) => b.bookId === book.bookId,
     );
@@ -18,6 +25,7 @@ const BookContextP = ({ children }) => {
         (b) => b.bookId !== book.bookId,
       );
       setWishlistBooks(updateWishList);
+      localStorage.setItem("wishlist", JSON.stringify(updateWishList));
     }
 
     const isBookExists = readBooksList.find((b) => b.bookId === book.bookId);
@@ -67,6 +75,7 @@ const BookContextP = ({ children }) => {
       );
     } else {
       setWishlistBooks([...wishlistBooks, book]);
+      addToLocalStorage("wishlist", book);
 
       toast(
         <p>
