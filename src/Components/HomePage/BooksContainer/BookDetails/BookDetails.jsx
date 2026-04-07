@@ -12,7 +12,7 @@ const BookDetails = () => {
   const { handleReadBtn } = useContext(BookContext);
 
   return (
-    <section className="container mx-auto px-5">
+    <section className="mb-40 container mx-auto px-5">
       <div>
         <div className="flex flex-col lg:flex-row gap-12">
           <div className="p-7 sm:py-18 xl:p-18.5 bg-[#131313]/5 rounded-2xl flex justify-center items-center">

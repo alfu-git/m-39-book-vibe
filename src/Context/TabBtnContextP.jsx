@@ -9,7 +9,11 @@ const TabBtnContextP = ({ children }) => {
     setTabBtnText(text);
   };
 
-  return <TabBtnContext.Provider value={{tabBtnText, handleTabBtn}}>{children}</TabBtnContext.Provider>;
+  return (
+    <TabBtnContext.Provider value={{ tabBtnText, handleTabBtn }}>
+      {children}
+    </TabBtnContext.Provider>
+  );
 };
 
 export default TabBtnContextP;

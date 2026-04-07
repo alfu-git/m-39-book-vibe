@@ -6,12 +6,15 @@ import { router } from "./Routes/Routes.jsx";
 import { RouterProvider } from "react-router";
 import BookContextP from "./Context/BookContextP.jsx";
 import TabBtnContextP from "./Context/TabBtnContextP.jsx";
+import { ToastContainer } from "react-toastify";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <BookContextP>
       <TabBtnContextP>
         <RouterProvider router={router} />
+
+        <ToastContainer />
       </TabBtnContextP>
     </BookContextP>
   </StrictMode>,

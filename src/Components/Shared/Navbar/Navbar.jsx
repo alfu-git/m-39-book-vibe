@@ -46,7 +46,7 @@ const Navbar = () => {
   );
 
   return (
-    <section className="container mx-auto px-5 sticky z-50 top-0">
+    <section className="mb-2 container mx-auto px-5 sticky z-50 top-0">
       <div>
         <nav className="navbar bg-base-100 py-5">
           <div className="navbar-start">
@@ -72,7 +72,7 @@ const Navbar = () => {
                   />{" "}
                 </svg>
               </div>
-              
+
               <ul
                 tabIndex="-1"
                 className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
@@ -80,7 +80,9 @@ const Navbar = () => {
                 {links}
               </ul>
             </div>
-            <h2 className="w-full text-[28px] text-[#131313] font-bold">Book Vibe</h2>
+            <h2 className="w-full text-[28px] text-[#131313] font-bold">
+              Book Vibe
+            </h2>
           </div>
 
           <div className="navbar-center hidden lg:flex">
