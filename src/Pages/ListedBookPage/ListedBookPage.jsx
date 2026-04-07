@@ -1,9 +1,10 @@
 import React from 'react';
+import BooksTitle from '../../Components/ListedBookPage/BooksTitle/BooksTitle';
 
 const ListedBookPage = () => {
   return (
     <div>
-      <h1>Listed Book page</h1>
+      <BooksTitle />
     </div>
   );
 };
