@@ -2,16 +2,16 @@ import React, { useContext } from "react";
 import { BookContext } from "../../../Context/BookContextP";
 import ListCard from "../ListCard/ListCard";
 
-const ReadBooksContainer = () => {
-  const { readBooksList } = useContext(BookContext);
+const WishlistBooksContainer = () => {
+  const { wishlistBooks } = useContext(BookContext);
 
-  if (readBooksList.length === 0) {
+  if (wishlistBooks.length === 0) {
     return (
       <section className="container mx-auto px-5">
         <div>
           <div className="mb-10 py-20 bg-[#131313]/5 rounded-2xl">
             <h6 className="text-3xl text-zinc-400 font-bold text-center">
-              No Read Books Available
+              No Wishlist Books Available
             </h6>
           </div>
         </div>
@@ -23,7 +23,7 @@ const ReadBooksContainer = () => {
     <section className="mb-30 container mx-auto px-5">
       <div>
         <div className="space-y-6">
-          {readBooksList?.map((book) => (
+          {wishlistBooks.map((book) => (
             <ListCard key={book.bookId} book={book} />
           ))}
         </div>
@@ -32,4 +32,4 @@ const ReadBooksContainer = () => {
   );
 };
 
-export default ReadBooksContainer;
+export default WishlistBooksContainer;

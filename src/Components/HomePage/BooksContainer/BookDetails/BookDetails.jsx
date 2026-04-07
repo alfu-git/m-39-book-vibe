@@ -9,7 +9,7 @@ const BookDetails = () => {
 
   const expectedBook = allBooks.find((book) => book.bookId === Number(id));
 
-  const { handleReadBtn } = useContext(BookContext);
+  const { handleReadBtn, handleWishlistBtn } = useContext(BookContext);
 
   return (
     <section className="mb-40 container mx-auto px-5">
@@ -84,7 +84,11 @@ const BookDetails = () => {
               >
                 Read
               </button>
-              <button className="btn border-none shadow-none h-12 px-7 bg-[#50B1C9]  rounded-lg text-base-100 text-lg font-semibold">
+
+              <button
+                onClick={() => handleWishlistBtn(expectedBook)}
+                className="btn border-none shadow-none h-12 px-7 bg-[#50B1C9]  rounded-lg text-base-100 text-lg font-semibold"
+              >
                 Wishlist
               </button>
             </div>
