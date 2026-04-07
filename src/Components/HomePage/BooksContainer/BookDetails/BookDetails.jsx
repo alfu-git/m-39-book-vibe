@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useLoaderData, useParams } from "react-router";
+import { BookContext } from "../../../../Context/BookContextP";
 
 const BookDetails = () => {
   const { id } = useParams();
@@ -7,22 +8,24 @@ const BookDetails = () => {
   const allBooks = useLoaderData();
 
   const expectedBook = allBooks.find((book) => book.bookId === Number(id));
-  console.log(expectedBook);
+
+  const { handleReadBtn } = useContext(BookContext);
 
   return (
     <section className="container mx-auto px-5">
       <div>
-        <div className="flex flex-col xl:flex-row gap-12">
+        <div className="flex flex-col lg:flex-row gap-12">
           <div className="p-7 sm:py-18 xl:p-18.5 bg-[#131313]/5 rounded-2xl flex justify-center items-center">
             <figure>
               <img
+                className="xl:h-162.5"
                 src={expectedBook.image}
                 alt={`${expectedBook.bookName} Book png`}
               />
             </figure>
           </div>
 
-          <div className="space-y-6 xl:max-w-137">
+          <div className="space-y-6 lg:max-w-137">
             <div>
               <h3 className="mb-4 text-[40px] text-[#131313] font-bold playfair-font">
                 {expectedBook.bookName}
@@ -75,8 +78,15 @@ const BookDetails = () => {
             </div>
 
             <div className="mt-2 space-x-4">
-              <button className="btn shadow-none h-12 px-7 border border-[#131313]/30 rounded-lg text-[#131313] text-lg font-bold">Read</button>
-              <button className="btn border-none shadow-none h-12 px-7 bg-[#50B1C9]  rounded-lg text-base-100 text-lg font-semibold">Wishlist</button>
+              <button
+                onClick={() => handleReadBtn(expectedBook)}
+                className="btn shadow-none h-12 px-7 border border-[#131313]/30 rounded-lg text-[#131313] text-lg font-bold"
+              >
+                Read
+              </button>
+              <button className="btn border-none shadow-none h-12 px-7 bg-[#50B1C9]  rounded-lg text-base-100 text-lg font-semibold">
+                Wishlist
+              </button>
             </div>
           </div>
         </div>

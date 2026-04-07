@@ -1,13 +1,15 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import './index.css'
-import App from './App.jsx'
-import { router } from './Routes/Routes.jsx'
-import { RouterProvider } from 'react-router'
+import { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
+import "./index.css";
+import App from "./App.jsx";
+import { router } from "./Routes/Routes.jsx";
+import { RouterProvider } from "react-router";
+import BookContextP from "./Context/BookContextP.jsx";
 
-
-createRoot(document.getElementById('root')).render(
+createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <RouterProvider router={router} />
+    <BookContextP>
+      <RouterProvider router={router} />
+    </BookContextP>
   </StrictMode>,
-)
+);
