@@ -12,7 +12,7 @@ const ListedBookPage = () => {
   return (
     <div>
       <BooksTitle />
-      <SortBy />
+      <SortBy tabBtnText={tabBtnText} />
       <TabBtn />
       {tabBtnText === "read" && <ReadBooksContainer />}
       {tabBtnText === "wishlist" && <WishlistBooksContainer />}

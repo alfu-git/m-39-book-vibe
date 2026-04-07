@@ -6,13 +6,17 @@ export const BookContext = createContext();
 const BookContextP = ({ children }) => {
   const [readBooksList, setReadBooksList] = useState([]);
   const [wishlistBooks, setWishlistBooks] = useState([]);
+  const [sortType, setSortType] = useState("");
 
   const handleReadBtn = (book) => {
-
-    const isExistsInWishlist = wishlistBooks.find(b => b.bookId === book.bookId);
+    const isExistsInWishlist = wishlistBooks.find(
+      (b) => b.bookId === book.bookId,
+    );
 
     if (isExistsInWishlist) {
-      const updateWishList = wishlistBooks.filter(b => b.bookId !== book.bookId);
+      const updateWishList = wishlistBooks.filter(
+        (b) => b.bookId !== book.bookId,
+      );
       setWishlistBooks(updateWishList);
     }
 
@@ -75,11 +79,55 @@ const BookContextP = ({ children }) => {
     }
   };
 
+  const handleSortBtn = (type, tabBtnText) => {
+    setSortType(type);
+
+    if (tabBtnText === "read") {
+      const sortedReadBooks = [...readBooksList].sort((a, b) => {
+        if (type === "rating") {
+          return b.rating - a.rating;
+        }
+
+        if (type === "pages") {
+          return b.totalPages - a.totalPages;
+        }
+
+        if (type === "year") {
+          return b.yearOfPublishing - a.yearOfPublishing;
+        }
+
+        return 0;
+      });
+
+      setReadBooksList(sortedReadBooks);
+    } else {
+      const sortedWishlist = [...wishlistBooks].sort((a, b) => {
+        if (type === "rating") {
+          return b.rating - a.rating;
+        }
+
+        if (type === "pages") {
+          return b.totalPages - a.totalPages;
+        }
+
+        if (type === "year") {
+          return b.yearOfPublishing - a.yearOfPublishing;
+        }
+
+        return 0;
+      });
+
+      setWishlistBooks(sortedWishlist);
+    }
+  };
+
   const data = {
     handleReadBtn,
     readBooksList,
     handleWishlistBtn,
     wishlistBooks,
+    sortType,
+    handleSortBtn,
   };
 
   return <BookContext.Provider value={data}>{children}</BookContext.Provider>;
