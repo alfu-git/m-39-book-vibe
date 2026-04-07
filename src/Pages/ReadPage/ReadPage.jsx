@@ -1,9 +1,10 @@
 import React from 'react';
+import Chart from '../../Components/ReadPage/Chart/Chart';
 
 const ReadPage = () => {
   return (
     <div>
-      <h1>Read page</h1>
+      <Chart />
     </div>
   );
 };

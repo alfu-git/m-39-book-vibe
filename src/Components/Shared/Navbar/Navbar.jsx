@@ -46,9 +46,9 @@ const Navbar = () => {
   );
 
   return (
-    <section className="mb-2 container mx-auto px-5 sticky z-50 top-0">
+    <section className="container mx-auto px-5 sticky z-50 top-0 bg-base-100">
       <div>
-        <nav className="navbar bg-base-100 py-5">
+        <nav className="navbar py-5">
           <div className="navbar-start">
             <div className="dropdown">
               <div
