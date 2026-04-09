@@ -1,16 +1,51 @@
-# React + Vite
+# Book-Vibe 📚
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Book-Vibe** is an online book reader Single Page Application (SPA) built with **React**.  
 
-Currently, two official plugins are available:
+It allows users to explore books, keep track of their reading, manage a wishlist, and visualize their reading progress.  
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+## Features ✨
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **Static Navbar**: The navbar remains fixed across all pages.  
 
-## Expanding the ESLint configuration
+- **Home Page**:  
+  - Displays all books as cards.  
+  - Clicking a card opens the book's **Details Page**.  
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- **Book Details Page**:  
+  - Two buttons: **Read** and **Wishlist**  
+  - Clicking **Read** adds the book to the **Read Books** tab.  
+  - Clicking **Wishlist** adds the book to the **Wishlist** tab.  
+  - Each action triggers a **Toastify** notification.  
+
+- **Listed Books Page**:  
+  - Two tabs: **Read Books** and **Wishlist Books**  
+  - Sort books by **Rating**, **Number of Pages**, or **Publishing Year**  
+
+- **Pages to Read Page**:  
+  - Shows a **Triangular Bar Chart** representing books read.  
+  - X-axis: Book Name, Y-axis: Total Pages  
+  - Initially hidden; updates dynamically when a book is marked as read.  
+
+- **Local Storage Integration**:  
+  - All book data, read status, and wishlist are saved in the browser.  
+
+---
+
+## Tech Stack 🛠️
+
+- **Frontend**: React.js  
+- **Styling**: Tailwind CSS  
+- **Notifications**: React-Toastify  
+- **Charts**: Chart.js (Triangular Bar Chart)  
+- **Data Persistence**: Local Storage  
+
+---
+
+## How to Run 🚀
+
+1. Clone the repository  
+```bash
+git clone https://github.com/alfu-git/m-39-book-vibe
